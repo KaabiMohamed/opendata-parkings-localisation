@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: Parking Service API
+  version: 1.0.0
+
+paths:
+  /parking-service/v1/parking-lots:
+    get:
+      summary: Get parking information
+      parameters:
+        - name: longitude
+          in: query
+          description: Actual position Longitude
+          required: true
+          schema:
+            type: double
+        - name: latitude
+          in: query
+          description: Actual position latitude
+          required: true
+          schema:
+            type: double
+        - name: radius
+          in: query
+          description: radius in meters
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParkingResponse'
+        "400":
+          description: "The syntax of the query is incorrect"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "404":
+          description: "Not Found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+components:
+  schemas:
+    ParkingDto:
+      type: object
+      properties:
+        name:
+          type: string
+          example:
+            "Parking Name"
+        address:
+          type: string
+          example:
+            "Parking address"
+        url:
+          type: string
+          example:
+            "https://urlofMyParking"
+        capacity:
+          type: integer
+          description: parking capacity
+          example:
+            400
+        longitude:
+          type: number
+          example: 0.338550783801622
+        latitude:
+          type: number
+          example: 46.5793235337795
+        placesAvailable:
+          type: integer
+          description: parking capacity
+          example:
+            400
+        lastUpdateDateDatabase:
+          type: string
+          pattern: yyyy-MM-dd
+        lastUpdateDateBO:
+          type: string
+          pattern: yyyy-MM-dd
+        distance:
+          type: integer
+          example: 200
+          description: distance between actual position and parking
+        geoPoint2D:
+          type: object
+          properties:
+            lon:
+              type: number
+            lat:
+              type: number
+    ParkingResponse:
+      type: object
+      properties:
+        totalItems:
+          type: integer
+          description: The total number of items returned
+        result:
+          type: array
+          items:
+            $ref: "#/components/schemas/ParkingDto"
+    Error:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          description: "date and time of error"
+          example: "2021-05-17T14:38:42.037+00:00"
+        status:
+          type: integer
+          format: date-time
+          description: "HTTP Status Code"
+          example: "422"
+        error:
+          type: string
+          description: "Description of Status Code"
+        message:
+          type: string
+          description: "Error message description"
