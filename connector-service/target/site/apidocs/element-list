@@ -1,0 +1,9 @@
+com.instantsystem.connector
+com.instantsystem.connector.global.entity
+com.instantsystem.connector.global.repository
+com.instantsystem.connector.poitiers.batch
+com.instantsystem.connector.poitiers.datasource
+com.instantsystem.connector.poitiers.mapper
+com.instantsystem.connector.poitiers.model
+com.instantsystem.connector.poitiers.scheduler
+com.instantsystem.connector.poitiers.service

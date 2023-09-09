@@ -1,0 +1,9 @@
+com.instantsytem.parkingservice
+com.instantsytem.parkingservice.config
+com.instantsytem.parkingservice.controller
+com.instantsytem.parkingservice.dto
+com.instantsytem.parkingservice.entity
+com.instantsytem.parkingservice.facade
+com.instantsytem.parkingservice.mapper
+com.instantsytem.parkingservice.repository
+com.instantsytem.parkingservice.service
