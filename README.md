@@ -47,7 +47,7 @@ I used the Hibernate Spatial library because it is open-source and compatible wi
 I performed the search operation within a specified radius in the database query, which returns parking data and the distance between the sent geometric point and the parking coordinates.
 I made this choice for speed and efficiency.
 
-I had to change databse dialect to manipulate Geometry objects in database
+I had to change databse storage engine to manipulate Geometry objects in database, i used MYSQL Spatial
 ```
 spring.jpa.properties.hibernate.dialect=org.hibernate.spatial.dialect.mysql.MySQL5SpatialDialect
 ```
@@ -164,7 +164,7 @@ Regular updates of parking data are essential. Given that spot availability is r
 I used the Hibernate Spatial library because it is open-source and compatible with Oracle, MySQL, PostgreSQL/PostGIS, and a few others.
 
 
-I had to change databse dialect to manipulate Geometry objects in database
+I had to change databse storage engine to manipulate Geometry objects in database, i used MYSQL Spatial
 ```
 spring.jpa.properties.hibernate.dialect=org.hibernate.spatial.dialect.mysql.MySQL5SpatialDialect
 ```
