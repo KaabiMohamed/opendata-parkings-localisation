@@ -5,6 +5,13 @@
 3. [Sample Data Response](#sample-data-response)
 
 
+# Architecture 
+
+
+<div align="center">
+  <img src="files/parking-localisation-diagram.png" width="600" alt="System Architecture Diagram">
+</div>
+
 
 
 # Parking service <a name="parkingservice"></a>
